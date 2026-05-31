@@ -43,7 +43,7 @@ export default function HeroTile() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
       whileHover={{ scale: 1.01 }}
-      className="relative col-span-2 rounded-2xl overflow-hidden border border-white/[0.06] bg-[#0c0c0c] p-8"
+      className="relative col-span-2 rounded-2xl overflow-hidden border border-white/6 bg-[#0c0c0c] p-8"
     >
       {/* Background glows */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -83,7 +83,7 @@ export default function HeroTile() {
         </motion.div>
 
         {/* Stats */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           {stats.map((stat, i) => {
             const c = colorMap[stat.color];
             return (
