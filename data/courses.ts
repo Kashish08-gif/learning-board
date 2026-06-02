@@ -1,3 +1,5 @@
+import { BadgeJapaneseYenIcon } from "lucide-react";
+
 export const courses = [
   {
     id: 1,
@@ -18,3 +20,5 @@ export const courses = [
     icon: "palette",
   },
 ];
+
+
