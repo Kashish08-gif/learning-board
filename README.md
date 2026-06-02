@@ -73,7 +73,7 @@ Open http://localhost:3000
 * Static UI showcase
 
 ## 🌐 Live Demo
-https://learning-board-yd4k-git-main-kashish240130-8310s-projects.vercel.app
+https://learning-board-yd4k.vercel.app
 
 ## 👨‍💻 Author
 
