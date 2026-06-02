@@ -1,175 +1,36 @@
-export default function CoursesPage() {
-  const courses = [
-    {
-      id: 1,
-      title: "Advanced React Patterns",
-      category: "Frontend",
-      progress: 75,
-    },
-    {
-      id: 2,
-      title: "Fullstack Next.js",
-      category: "Web Development",
-      progress: 45,
-    },
-    {
-      id: 3,
-      title: "UI/UX Design Fundamentals",
-      category: "Design",
-      progress: 60,
-    },
-    {
-      id: 4,
-      title: "Database Design",
-      category: "Backend",
-      progress: 30,
-    },
-  ];
+import { supabase } from "@/lib/supabase";
+import CoursesList from "../components/CoursesList";
+import { AlertCircle } from "lucide-react";
 
-  return (
-    <div className="p-8">
-      {/* Header */}
-      <h1 className="text-4xl font-bold text-white">
-        My Courses
-      </h1>
+export default async function CoursesPage() {
+  const { data: courses, error } = await supabase
+    .from("courses")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-      <p className="text-gray-400 mt-2">
-        Manage your courses
-      </p>
-
-      {/* Search + Add Course */}
-      <div className="flex flex-col md:flex-row justify-between gap-4 mt-8">
-        <input
-          type="text"
-          placeholder="Search courses..."
-          className="
-            w-full md:w-80
-            bg-white/5
-            border border-white/10
-            rounded-xl
-            px-4 py-3
-            text-white
-            placeholder-gray-400
-            focus:outline-none
-            focus:border-cyan-500
-          "
-        />
-
-        <button
-          className="
-            bg-cyan-500
-            hover:bg-cyan-600
-            text-black
-            font-semibold
-            px-5 py-3
-            rounded-xl
-            transition-all
-          "
-        >
-          + Add Course
-        </button>
-      </div>
-
-      {/* Course Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        {courses.map((course) => (
-          <div
-            key={course.id}
-            className="
-              bg-white/5
-              border border-white/10
-              rounded-2xl
-              p-6
-              hover:border-cyan-500/50
-              hover:shadow-lg hover:shadow-cyan-500/10
-              transition-all
-            "
-          >
-            <div className="flex justify-between items-start">
-              <div>
-                <h2 className="text-xl font-semibold text-white">
-                  {course.title}
-                </h2>
-
-                <span
-                  className="
-                    inline-block
-                    mt-2
-                    px-3 py-1
-                    text-xs
-                    rounded-full
-                    bg-cyan-500/20
-                    text-cyan-400
-                  "
-                >
-                  {course.category}
-                </span>
-              </div>
-
-              <span className="text-cyan-400 font-semibold">
-                {course.progress}%
-              </span>
+  if (error) {
+    return (
+      <div className="flex min-h-[70vh] items-center justify-center">
+        <div className="max-w-md rounded-3xl border border-red-400/20 bg-red-500/10 p-7 shadow-[0_24px_80px_rgba(239,68,68,0.10)]">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-red-400/20 bg-red-500/10">
+              <AlertCircle className="text-red-300" size={22} />
             </div>
-
-            {/* Progress Bar */}
-            <div className="mt-6">
-              <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-cyan-500 rounded-full"
-                  style={{
-                    width: `${course.progress}%`,
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="flex gap-3 mt-6">
-              <button
-                className="
-                  flex-1
-                  bg-cyan-500
-                  hover:bg-cyan-600
-                  text-black
-                  font-medium
-                  py-2
-                  rounded-xl
-                "
-              >
-                View
-              </button>
-
-              <button
-                className="
-                  flex-1
-                  bg-yellow-500
-                  hover:bg-yellow-600
-                  text-black
-                  font-medium
-                  py-2
-                  rounded-xl
-                "
-              >
-                Edit
-              </button>
-
-              <button
-                className="
-                  flex-1
-                  bg-red-500
-                  hover:bg-red-600
-                  text-white
-                  font-medium
-                  py-2
-                  rounded-xl
-                "
-              >
-                Delete
-              </button>
-            </div>
+            <h2 className="text-xl font-semibold text-white">
+              Failed to Load Courses
+            </h2>
           </div>
-        ))}
+          <p className="mb-4 text-sm leading-6 text-zinc-400">
+            Unable to fetch courses from the database. Please check your
+            connection and try again.
+          </p>
+          <p className="rounded-2xl border border-white/10 bg-black/20 px-3 py-2 font-mono text-xs text-zinc-500">
+            Error: {error.message}
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <CoursesList initialCourses={courses || []} />;
 }

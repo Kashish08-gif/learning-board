@@ -1,30 +1,23 @@
 export default function Loading() {
   return (
-    <div className="flex h-screen bg-[#060606]">
-      {/* Sidebar skeleton */}
-      <div className="hidden md:flex w-[220px] h-screen bg-[#080808] border-r border-white/[0.06] p-5 flex-col gap-3 flex-shrink-0">
-        <div className="h-8 w-28 bg-white/[0.05] rounded-lg animate-pulse mb-6" />
-        {[1, 2, 3, 4].map((i) => (
-          <div
-            key={i}
-            className="h-10 w-full bg-white/[0.04] rounded-xl animate-pulse"
-          />
-        ))}
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 lg:col-span-2">
+        <div className="mb-4 h-7 w-44 animate-pulse rounded-full bg-white/[0.07]" />
+        <div className="mb-3 h-10 w-full max-w-xl animate-pulse rounded-2xl bg-white/[0.07]" />
+        <div className="h-4 w-72 animate-pulse rounded-full bg-white/[0.05]" />
       </div>
 
-      {/* Main content skeleton */}
-      <main className="flex-1 p-6 md:p-8 overflow-y-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          <div className="col-span-2 h-44 bg-white/[0.04] rounded-2xl animate-pulse" />
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              className="h-44 bg-white/[0.04] rounded-2xl animate-pulse"
-            />
-          ))}
-          <div className="col-span-2 h-40 bg-white/[0.04] rounded-2xl animate-pulse" />
+      {[1, 2, 3, 4].map((item) => (
+        <div
+          key={item}
+          className="min-h-[240px] rounded-3xl border border-white/10 bg-white/[0.025] p-5"
+        >
+          <div className="mb-6 h-11 w-11 animate-pulse rounded-2xl bg-white/[0.07]" />
+          <div className="mb-2 h-5 w-2/3 animate-pulse rounded-full bg-white/[0.07]" />
+          <div className="mb-8 h-4 w-24 animate-pulse rounded-full bg-white/[0.05]" />
+          <div className="h-2 w-full animate-pulse rounded-full bg-white/[0.06]" />
         </div>
-      </main>
+      ))}
     </div>
   );
 }

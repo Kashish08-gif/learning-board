@@ -25,42 +25,44 @@ export default function ActivityTile() {
         scale: 1.01,
         transition: { type: "spring", stiffness: 300, damping: 20 },
       }}
-      className="rounded-2xl bg-[#0c0c0c] border border-white/[0.06] p-6 col-span-2"
+      className="overflow-hidden rounded-3xl border border-white/10 bg-[#0d0c0d]/90 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.20)] sm:p-6 lg:col-span-2"
     >
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-white text-sm font-semibold">Learning Activity</h2>
-        <span className="text-zinc-600 text-xs">Last 7 weeks</span>
+        <h2 className="text-sm font-semibold text-white">Learning Activity</h2>
+        <span className="text-xs text-zinc-500">Last 7 weeks</span>
       </div>
 
       {/* Activity grid */}
-      <div
-        className="grid gap-1.5"
-        style={{ gridTemplateColumns: "repeat(7, 28px)" }}
-      >
-        {activityData.map((level, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              delay: 0.55 + i * 0.012,
-              type: "spring",
-              stiffness: 400,
-              damping: 18,
-            }}
-            whileHover={{ scale: 1.4, transition: { duration: 0.1 } }}
-            className={`aspect-square rounded-sm cursor-pointer ${cellColor(level)}`}
-          />
-        ))}
+      <div className="overflow-x-auto pb-1">
+        <div
+          className="grid w-max gap-1.5"
+          style={{ gridTemplateColumns: "repeat(7, minmax(20px, 28px))" }}
+        >
+          {activityData.map((level, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.55 + i * 0.012,
+                type: "spring",
+                stiffness: 400,
+                damping: 18,
+              }}
+              whileHover={{ scale: 1.35, transition: { duration: 0.1 } }}
+              className={`h-5 w-5 cursor-pointer rounded-md sm:h-7 sm:w-7 ${cellColor(level)}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Legend */}
       <div className="flex items-center gap-1.5 mt-4">
-        <span className="text-zinc-600 text-xs mr-1">Less</span>
+        <span className="mr-1 text-xs text-zinc-500">Less</span>
         {[0, 1, 2, 3].map((l) => (
-          <div key={l} className={`w-3 h-3 rounded-sm ${cellColor(l)}`} />
+          <div key={l} className={`h-3 w-3 rounded ${cellColor(l)}`} />
         ))}
-        <span className="text-zinc-600 text-xs ml-1">More</span>
+        <span className="ml-1 text-xs text-zinc-500">More</span>
       </div>
     </motion.article>
   );
