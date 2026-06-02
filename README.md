@@ -1,36 +1,83 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🎓 Luminary - Student Learning Dashboard
 
-First, run the development server:
+A modern learning dashboard built with Next.js, TypeScript, and Tailwind CSS. The application allows students to manage courses, track progress, and explore a clean dashboard interface.
+
+## ✨ Features
+
+### ✅ Implemented Features
+
+* Dashboard overview
+* Course management system
+* Add new courses
+* View course details
+* Edit courses
+* Delete courses
+* Search courses
+* Course progress tracking
+* Responsive sidebar navigation
+* Modern dark-themed UI
+
+### 🚧 Demo / UI Pages
+
+The following pages are currently UI demonstrations with static data:
+
+* Learning Activity page
+* Settings page
+* Statistics cards and analytics widgets
+
+These pages showcase the design and layout and can be connected to a backend in future versions.
+
+## 🛠️ Tech Stack
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+
+## 📂 Installation
 
 ```bash
+git clone https://github.com/Kashish08-gif/learning-board.git
+cd learning-board
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📌 Current Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Courses
 
-## Learn More
+* Create courses
+* View courses
+* Edit courses
+* Delete courses
+* Search courses
+* Track progress
 
-To learn more about Next.js, take a look at the following resources:
+### Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Displays learning overview
+* Shows active course progress
+* Displays streak and badge statistics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Activity
 
-## Deploy on Vercel
+* Static UI showcase
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Settings
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Static UI showcase
+
+## 🌐 Live Demo
+
+Add your Vercel deployment URL here.
+
+## 👨‍💻 Author
+
+Kashish
+
+GitHub: https://github.com/Kashish08-gif
