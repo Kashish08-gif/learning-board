@@ -73,8 +73,7 @@ Open http://localhost:3000
 * Static UI showcase
 
 ## 🌐 Live Demo
-
-Add your Vercel deployment URL here.
+https://vercel.com/kashish240130-8310s-projects/learning-board-yd4k/GxMADdXbpjn5DsLxn3tUjpH7nofG
 
 ## 👨‍💻 Author
 
